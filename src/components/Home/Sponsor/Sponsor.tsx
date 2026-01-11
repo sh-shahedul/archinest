@@ -32,7 +32,6 @@ const Sponsor = () => {
       </div>
      
 
-      {/* Marquee */}
       <div className="relative w-full overflow-hidden">
         <motion.div
           className="flex gap-16"
@@ -45,7 +44,9 @@ const Sponsor = () => {
               key={idx}
               className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300"
             >
-              {/* dfdsfsdf */}
+      
+
+
               <img
                 src={sponsor.logo}
                 alt={sponsor.name}
