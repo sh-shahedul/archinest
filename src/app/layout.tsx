@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/shared/Footer/Footer";
-import { Header } from "@/components/shared/Header/Header";
+// import { Header } from "@/components/shared/Header/Header";
+import NextAuthProvider from "@/provider/NextAuthProvider";
+import Header from "@/components/shared/Header/Header";
 // import { Footer } from "@/components/shared/Footer/Footer";
 
 const geistSans = Geist({
@@ -26,23 +28,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+         <NextAuthProvider>
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-       {/* <main>
-         {children}
-       </main> */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <header className="py-2 md:w-11/12 mx-auto max-w-screen-2xl">
           <Header></Header>
         </header>
        <main className="py-2  mx-auto min-h-[calc(100vh-302px)]">
-         {children}
+          {children}
        </main>
-        <footer className="py-2  mx-auto ">
+        <footer className="py-2   ">
           <Footer></Footer>
         </footer>
       </body>
     </html>
+         </NextAuthProvider>
   );
 }
+ 

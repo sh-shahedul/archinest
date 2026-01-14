@@ -7,10 +7,13 @@ import HowItWorks from "@/components/Home/HowItWorks/HowItWorks";
 import Service from "@/components/Home/Service/Service";
 import Sponsor from "@/components/Home/Sponsor/Sponsor";
 import WhyChooseUs from "@/components/Home/WhychooseUs/WhyChooseUs";
+// import { getServerSession } from "next-auth";
+// import { authOptions } from "./api/auth/[...nextauth]/route";
 
 
 
-export default function Home() {
+export default  function Home() {
+  // const session =await getServerSession(authOptions)
   return (
   <div>
 

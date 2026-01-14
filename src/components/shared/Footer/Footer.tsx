@@ -52,22 +52,17 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-[#FFF8F0] text-[#131313] mt-12">
-      {/* Soft glow */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#FF900E]/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#FFB95C]/10 rounded-full blur-3xl animate-pulse"></div>
-      </div>
-
-      <div className="relative max-w-screen-2xl mx-auto px-10 py-16">
+    <footer className=" bg-[#FFF8F0] text-[#131313] ">
+  
+      <div className=" max-w-screen-2xl mx-auto px-6 py-16">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 group mb-6">
-              <div className="relative">
-                <div className="absolute inset-0 bg-[#FF900E]/20 rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <div className="relative bg-gradient-to-br from-[#FF900E] to-[#FFB95C] p-2.5 rounded-xl">
+              <div className="">
+                <div className=" inset-0 bg-[#FF900E]/20 rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                <div className=" bg-gradient-to-br from-[#FF900E] to-[#FFB95C] p-2.5 rounded-xl">
                   <Calendar className="h-7 w-7 text-white" />
                 </div>
               </div>
