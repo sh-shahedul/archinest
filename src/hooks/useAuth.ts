@@ -1,43 +1,24 @@
-// "use client";
 
-// import { getToken, removeToken } from "@/lib/token";
-// import { useCallback, useEffect, useState } from "react";
-
-// export function useAuth() {
-//   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-//   // Check token on mount
-//   useEffect(() => {
-//     setIsAuthenticated(!!getToken());
-//   }, []);
-
-//   const logout = useCallback(() => {
-//     removeToken();
-//     setIsAuthenticated(false);
-//   }, []);
-
-//   return {
-//     isAuthenticated,
-//     logout,
-//   };
-// }
 
 "use client";
 
-import { useCallback,  useState } from "react";
+import { signOut, useSession } from "next-auth/react";
+import { useCallback } from "react";
 
 export function useAuth() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  // Check token on mount
+ 
+const {data:session,status} = useSession()
  
 
   const logout = useCallback(() => {
-    setIsAuthenticated(false);
+     signOut()
   }, []);
 
   return {
-    isAuthenticated,
-    logout,
+    user:session?.user ?? null,
+    session,
+    isAuthenticated:status ==="authenticated",
+    isLoading: status === "loading",
+    logout
   };
 }

@@ -1,39 +1,28 @@
 // "use client";
-// import { Button } from "@/components/ui/button";
-// import { signIn } from "next-auth/react"
-// import {
-//   Sheet,
-//   SheetContent,
-//   SheetHeader,
-//   SheetTitle,
-//   SheetTrigger,
-// } from "@/components/ui/sheet";
-// import { useAuth } from "@/hooks/useAuth";
-// import { Calendar, Menu } from "lucide-react";
+// import React, { useState } from "react";
 // import Link from "next/link";
 // import { useRouter } from "next/navigation";
-// import { useState } from "react";
+// import { signIn } from "next-auth/react";
+// import { Calendar, Menu } from "lucide-react";
+// import { Button } from "@/components/ui/button";
+// import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+// import { useAuth } from "@/hooks/useAuth";
+// import NavLinks from "@/components/buttons/NavLinks";
+
 
 // export const Header = () => {
 //   const router = useRouter();
-//   const { isAuthenticated, logout } = useAuth();
+//   const { isAuthenticated, logout ,user} = useAuth();
 //   const [mobileOpen, setMobileOpen] = useState(false);
 
-//   const user = {
-//     name: "Touhid",
-//     email: "user@gmail.com",
-//   };
+ 
 
 //   const menuItems = [
 //     { title: "Home", url: "/" },
-//     { title: "service", url: "/service" },
+//     { title: "Service", url: "/service" },
 //     { title: "About", url: "/about" },
 //     { title: "Contact", url: "/contact" },
 //     { title: "Blog", url: "/blog" },
-//     ...(isAuthenticated ? [{ title: "My Events", url: "/my-events" }] : []),
-//     ...(isAuthenticated
-//       ? [{ title: "Create Event", url: "/events/create" }]
-//       : []),
 //   ];
 
 //   const handleNavigation = (url: string) => {
@@ -46,9 +35,17 @@
 //     logout();
 //   };
 
+//   // Nav items JSX
+//   const navLinks = menuItems.map((item) => (
+//     <li key={item.url}>
+//       <NavLinks href={item.url}>{item.title}</NavLinks>
+//     </li>
+//   ));
+
 //   return (
-//     <header className="fixed top-0 left-0 right-0 z-50 bg-[#FFF4E7]/90 backdrop-blur-xl ">
+//     <header className="fixed top-0 left-0 right-0 z-50 bg-[#FFF4E7]/90 backdrop-blur-xl">
 //       <div className="max-w-screen-2xl mx-auto flex h-16 items-center justify-between px-4">
+
 //         {/* Logo */}
 //         <button
 //           onClick={() => handleNavigation("/")}
@@ -59,18 +56,9 @@
 //         </button>
 
 //         {/* Desktop Navigation */}
-//         <nav className="hidden md:flex items-center gap-6">
-//           {menuItems.map((item,i) => (
-//             <Link href={item.url} key={i}>
-//               <button
-//                 key={item.url}
-//                 className="text-sm font-medium transition-colors hover:text-primary"
-//               >
-//                 {item.title}
-//               </button>
-//             </Link>
-//           ))}
-//         </nav>
+//         <div className="hidden md:flex items-center gap-6">
+//           <ul className="flex items-center gap-4">{navLinks}</ul>
+//         </div>
 
 //         {/* Desktop Auth Buttons */}
 //         <div className="hidden md:flex items-center gap-3">
@@ -90,8 +78,9 @@
 //               >
 //                 Sign Up
 //               </Button>
-              
-//               <Button  variant="outline" onClick={() => signIn()}>Log In</Button>
+//               <Button variant="outline" onClick={() => signIn()} size="sm">
+//                 Log In
+//               </Button>
 //             </>
 //           )}
 //         </div>
@@ -107,55 +96,33 @@
 //             <SheetHeader>
 //               <SheetTitle className="flex items-center gap-2">
 //                 <Calendar className="h-5 w-5" />
-//                 EventHub
+//                 ArchiNest
 //               </SheetTitle>
 //             </SheetHeader>
-//             <div className="flex flex-col gap-4 mt-8">
-//               {/* Mobile Navigation */}
-//               <nav className="flex flex-col gap-2">
-//                 {menuItems.map((item) => (
-//                   <Link href={item.url} key={item.url}>
-//                     <button
-                      
-//                       className="text-left px-3 py-2 rounded-md hover:bg-accent transition-colors"
-//                     >
-//                       {item.title}
-//                     </button>
-//                   </Link>
-//                 ))}
-//               </nav>
 
-//               {/* Mobile Auth Buttons */}
-//               <div className="flex flex-col gap-2 pt-4 border-t">
-//                 {isAuthenticated ? (
-//                   <>
-//                     <div className="px-3 py-2 text-sm text-muted-foreground">
-//                       <div className="font-medium text-foreground">
-//                         {user.name}
-//                       </div>
-//                       <div className="text-xs">{user.email}</div>
-//                     </div>
-//                     <Button
-//                       onClick={handleLogoutClick}
-//                       variant="outline"
-//                       className="w-full"
-//                     >
-//                       Logout
-//                     </Button>
-//                   </>
-//                 ) : (
-//                   <>
-//                     <button onClick={() => signIn()}>Log in</button>
+//             <ul className="flex flex-col gap-2 mt-8">{navLinks}</ul>
 
-//                     <Button
-//                       onClick={() => handleNavigation("/signup")}
-//                       className="w-full"
-//                     >
-//                       Sign Up
-//                     </Button>
-//                   </>
-//                 )}
-//               </div>
+//             <div className="flex flex-col gap-2 pt-4 border-t">
+//               {isAuthenticated ? (
+//                 <>
+//                   <div className="px-3 py-2 text-sm text-muted-foreground">
+//                     <div className="font-medium text-foreground">{user.name}</div>
+//                     <div className="text-xs">{user.email}</div>
+//                   </div>
+//                   <Button onClick={handleLogoutClick} variant="outline" className="w-full">
+//                     Logout
+//                   </Button>
+//                 </>
+//               ) : (
+//                 <>
+//                   <Button onClick={() => signIn()} variant="outline" className="w-full">
+//                     Log In
+//                   </Button>
+//                   <Button onClick={() => handleNavigation("/signup")} className="w-full">
+//                     Sign Up
+//                   </Button>
+//                 </>
+//               )}
 //             </div>
 //           </SheetContent>
 //         </Sheet>
@@ -164,27 +131,30 @@
 //   );
 // };
 
+// export default Header;
+
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Calendar, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/useAuth";
 import NavLinks from "@/components/buttons/NavLinks";
-
 
 export const Header = () => {
   const router = useRouter();
   const { isAuthenticated, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const user = {
-    name: "Touhid",
-    email: "user@gmail.com",
-  };
 
   const menuItems = [
     { title: "Home", url: "/" },
@@ -192,8 +162,6 @@ export const Header = () => {
     { title: "About", url: "/about" },
     { title: "Contact", url: "/contact" },
     { title: "Blog", url: "/blog" },
-    ...(isAuthenticated ? [{ title: "My Events", url: "/my-events" }] : []),
-    ...(isAuthenticated ? [{ title: "Create Event", url: "/events/create" }] : []),
   ];
 
   const handleNavigation = (url: string) => {
@@ -202,11 +170,10 @@ export const Header = () => {
   };
 
   const handleLogoutClick = () => {
-    setMobileOpen(false);
     logout();
+    setMobileOpen(false);
   };
 
-  // Nav items JSX
   const navLinks = menuItems.map((item) => (
     <li key={item.url}>
       <NavLinks href={item.url}>{item.title}</NavLinks>
@@ -216,26 +183,25 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#FFF4E7]/90 backdrop-blur-xl">
       <div className="max-w-screen-2xl mx-auto flex h-16 items-center justify-between px-4">
-
         {/* Logo */}
         <button
           onClick={() => handleNavigation("/")}
-          className="flex items-center gap-2 font-semibold text-xl hover:opacity-80 transition-opacity"
+          className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity"
         >
-          <Calendar className="h-6 w-6" />
+          <Calendar className="h-6 w-6 text-[#005461]" />
           <span>ArchiNest</span>
         </button>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6">
           <ul className="flex items-center gap-4">{navLinks}</ul>
-        </div>
+        </nav>
 
         {/* Desktop Auth Buttons */}
         <div className="hidden md:flex items-center gap-3">
           {isAuthenticated ? (
             <>
-              <div className="text-sm text-muted-foreground">{user.name}</div>
+              {/* <span className="text-sm text-muted-foreground">{user.name}</span> */}
               <Button onClick={handleLogoutClick} size="sm">
                 Logout
               </Button>
@@ -244,7 +210,7 @@ export const Header = () => {
             <>
               <Button
                 variant="outline"
-                onClick={() => handleNavigation("/signup")}
+                onClick={() => handleNavigation("/register")}
                 size="sm"
               >
                 Sign Up
@@ -263,7 +229,8 @@ export const Header = () => {
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-75">
+
+          <SheetContent side="right" className="w-72">
             <SheetHeader>
               <SheetTitle className="flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
@@ -271,25 +238,36 @@ export const Header = () => {
               </SheetTitle>
             </SheetHeader>
 
-            <ul className="flex flex-col gap-2 mt-8">{navLinks}</ul>
+            <ul className="flex flex-col gap-2 mt-6">{navLinks}</ul>
 
-            <div className="flex flex-col gap-2 pt-4 border-t">
+            <div className="flex flex-col gap-2 mt-6 border-t pt-4">
               {isAuthenticated ? (
                 <>
-                  <div className="px-3 py-2 text-sm text-muted-foreground">
+                  {/* <div className="px-3 py-2 text-sm text-muted-foreground">
                     <div className="font-medium text-foreground">{user.name}</div>
                     <div className="text-xs">{user.email}</div>
-                  </div>
-                  <Button onClick={handleLogoutClick} variant="outline" className="w-full">
+                  </div> */}
+                  <Button
+                    onClick={handleLogoutClick}
+                    variant="outline"
+                    className="w-full"
+                  >
                     Logout
                   </Button>
                 </>
               ) : (
                 <>
-                  <Button onClick={() => signIn()} variant="outline" className="w-full">
+                  <Button
+                    onClick={() => signIn()}
+                    variant="outline"
+                    className="w-full"
+                  >
                     Log In
                   </Button>
-                  <Button onClick={() => handleNavigation("/signup")} className="w-full">
+                  <Button
+                    onClick={() => handleNavigation("/register")}
+                    className="w-full"
+                  >
                     Sign Up
                   </Button>
                 </>
@@ -303,3 +281,4 @@ export const Header = () => {
 };
 
 export default Header;
+
