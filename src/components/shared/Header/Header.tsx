@@ -259,6 +259,7 @@ export const Header = () => {
                 <>
                   <Button
                     onClick={() => signIn()}
+                    
                     variant="outline"
                     className="w-full"
                   >
@@ -267,6 +268,7 @@ export const Header = () => {
                   <Button
                     onClick={() => handleNavigation("/register")}
                     className="w-full"
+                    
                   >
                     Sign Up
                   </Button>

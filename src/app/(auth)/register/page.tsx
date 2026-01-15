@@ -1,18 +1,18 @@
 import RegistrationForm from "@/components/form/RegisrationForm";
 import React from "react";
 import Image from "next/image";
-import registerImage from "../../../../public/reg.png"; 
+import registerImage from "../../../../public/regester.png"; 
 
 const RegisterPage = () => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left side - Registration Form */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-white">
-        <div className="w-full max-w-md space-y-6">
-          <h1 className="text-2xl font-bold text-center text-[#005461]">
-            Create Your Account
+        <div className="w-full max-w-md space-y-2">
+          <h1 className="text-2xl md:text-4xl font-bold text-center ">
+            Create Your <span className="text-orange-400">Account</span>
           </h1>
-          <p className="text-sm text-center text-muted-foreground">
+          <p className="md:text-base text-sm text-center text-muted-foreground">
             Start your journey with ArchiNest
           </p>
 
@@ -22,7 +22,7 @@ const RegisterPage = () => {
       </div>
 
       {/* Right side - Image */}
-      <div className="w-full md:w-1/2 relative h-64 md:h-auto flex justify-center items-center">
+      <div className="w-full md:w-1/2 relative h-64 md:h-auto flex justify-center items-center bg-orange-400">
         <Image
           src={registerImage}
           alt="Registration"
