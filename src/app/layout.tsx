@@ -28,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-         <NextAuthProvider>
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <NextAuthProvider>
         <header className="py-2 md:w-11/12 mx-auto max-w-screen-2xl">
           <Header></Header>
         </header>
@@ -40,9 +40,9 @@ export default function RootLayout({
         <footer className="py-2   ">
           <Footer></Footer>
         </footer>
+         </NextAuthProvider>
       </body>
     </html>
-         </NextAuthProvider>
   );
 }
  

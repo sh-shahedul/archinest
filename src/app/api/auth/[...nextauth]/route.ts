@@ -1,19 +1,8 @@
+import { mongoConnect } from "@/lib/mongoConnect"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-type TUser = {
-      id: string,
-      name: string,
-      password: string,
-      
+import bcrypt from "bcrypt";
 
-}
-
-
-const userList: TUser[]  = [
-  {name: "hablu",password:'1234',id:"1"},
-  {name: "bablu",password:'5678',id:"2"},
-  {name: "dablu",password:'8910',id:"3"},
-]
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -23,7 +12,7 @@ export const authOptions = {
     name: 'Credentials',
   //  form inputs
     credentials: {
-      username: { label: "Username", type: "text", placeholder: "jsmith" },
+      email: { label: "Username", type: "text", placeholder: "jsmith" },
       password: { label: "Password", type: "password" },
       // secretCode: { label: "Secret Code", type: "Number" , placeholder: "enter code" },
       
@@ -32,13 +21,20 @@ export const authOptions = {
        if (!credentials) return null;
      //my own login logic
     //  find user
-    const {username,password} = credentials;
-    const user = userList.find(u=> u.name == username)
+    const {email,password} = credentials;
+    // const user = userList.find(u=> u.name == email)
+    const {db} = await mongoConnect();
+    const user = await db.collection("users").findOne({ email });
     if(!user) return null;
 
-    const isPassword = user.password == password;
+    const isPassword = await bcrypt.compare(password,user.password)
     if(isPassword){
-      return user;
+      return {
+       id: user._id.toString(),
+       name: user.fullName,
+       email: user.email,
+       image:user.photoURL
+     };
     }
 
       
@@ -46,6 +42,9 @@ export const authOptions = {
     }
   })
   ],
+ pages: {
+  signIn: "/login",
+}
 }
 
 const handler = NextAuth(authOptions)
