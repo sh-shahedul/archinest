@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
 import React from "react";
 import { FaMedal, FaChartBar, FaBriefcase, FaEnvelope } from "react-icons/fa";
 
 interface Stat {
-  icon: JSX.Element;
+  icon: React.ReactNode;
   value: string;
   label: string;
   gradient: string;
@@ -37,7 +37,7 @@ const stats: Stat[] = [
   },
 ];
 
-const FactCard: React.FC<Stat> = ({ icon, value, label, gradient }) => (
+const FactCard = ({ icon, value, label, gradient }: Stat) => (
   <div
     className={`relative bg-gradient-to-br ${gradient} rounded-2xl shadow-lg p-8 flex flex-col items-center justify-center transform hover:-translate-y-2 hover:scale-105 transition-all duration-500`}
   >
@@ -49,7 +49,7 @@ const FactCard: React.FC<Stat> = ({ icon, value, label, gradient }) => (
   </div>
 );
 
-const FactsSection: React.FC = () => (
+const FactsSection = () => (
   <section className="relative mx-auto max-w-screen-2xl px-6 py-14">
     {/* Decorative background */}
     <div className="absolute top-0 left-0 w-40 h-40 bg-orange-200 rounded-full blur-3xl opacity-40" />

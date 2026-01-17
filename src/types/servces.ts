@@ -14,5 +14,7 @@
            architectExperience: string;
            architectAvatar: string;
            isFeatured: boolean;
+           createdAt:string,
+         
        }
 

@@ -6,4 +6,5 @@ export interface TUser {
   role: string;
   photoURL: string;
   agreeTerms: boolean;
+  image:string;
 };

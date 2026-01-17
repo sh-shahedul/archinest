@@ -12,7 +12,7 @@ interface FormData {
   message: string;
 }
 
-export default function ContactPage(): JSX.Element {
+export default function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',

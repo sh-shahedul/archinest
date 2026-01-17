@@ -32,13 +32,13 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <NextAuthProvider>
         <header className="py-2 md:w-11/12 mx-auto max-w-screen-2xl">
-          <Header></Header>
+          {/* <Header></Header> */}
         </header>
        <main className="py-2  mx-auto min-h-[calc(100vh-302px)]">
           {children}
        </main>
         <footer className="py-2   ">
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </footer>
          </NextAuthProvider>
       </body>

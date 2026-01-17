@@ -42,7 +42,7 @@ const ServiceDetails = () => {
     <div className="min-h-screen bg-gray-50/50 pb-20">
       {/* Navigation & Header Area */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between mt-10">
+        <div className="max-w-screen-2xl mx-auto px-6 h-16 flex items-center justify-between mt-10">
           <Link href="/services" className="flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-colors font-medium">
             <ArrowLeft className="w-4 h-4" /> Back to Services
           </Link>
@@ -57,7 +57,7 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
           {/* --- LEFT SIDE: Main Content (8 Columns) --- */}

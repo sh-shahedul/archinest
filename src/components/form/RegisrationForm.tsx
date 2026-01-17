@@ -103,6 +103,7 @@ const onSubmit = async (data: FormValues) => {
       password: data.password,
       phone: data.phone,
       role: "client",
+      image: imgRes.data.data.url ,
       photoURL: imgRes.data.data.url,
       agreeTerms: data.agreeTerms,
     };
@@ -110,7 +111,7 @@ const onSubmit = async (data: FormValues) => {
     // Register user
     await registerUser(userData);
 
-    // ✅ Automatic login
+    // Automatic login
     const loginResult = await signIn("credentials", {
       redirect: false,
       email: data.email,
