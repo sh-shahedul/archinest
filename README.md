@@ -6,7 +6,7 @@ A modern architectural service platform built with Next.js, TypeScript, and Mong
 
 **Live Application:** [https://archinest.vercel.app](https://archinest-psi.vercel.app/)
 
-**GitHub Repository:** [https://github.com/yourusername/archinest](https://github.com/sh-shahedul/archinest)
+**GitHub Repository:** [https://github.com/sh-shahedul/archinest](https://github.com/sh-shahedul/archinest)
 
 ## 🎯 Project Overview
 
@@ -124,91 +124,6 @@ archinest/
 }
 ```
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- MongoDB Atlas account or local MongoDB instance
-- Git
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/archinest.git
-cd archinest
-```
-
-2. **Install dependencies**
-```bash
-npm install
-```
-
-3. **Set up environment variables**
-Create a `.env.local` file in the root directory:
-
-```env
-# Database
-MONGODB_URI=your_mongodb_connection_string
-
-# NextAuth Configuration
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your_secret_key_here
-
-# OAuth Providers (Optional)
-GITHUB_ID=your_github_id
-GITHUB_SECRET=your_github_secret
-```
-
-4. **Run the development server**
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## 📱 Available Pages
-
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Landing page |
-| Services | `/services` | Browse all architectural services |
-| About | `/about` | About ArchiNest |
-| Contact | `/contact` | Contact form |
-| Blog | `/blog` | Blog posts and articles |
-| Login | `/login` | User login page |
-| Register | `/register` | New user registration |
-| Dashboard | `/dashboard/allService` | User dashboard with services |
-| 404 | `/*` | Not found page |
-
-## 🔐 Services Architecture
-
-### Service Categories
-Users can choose from the following architectural services:
-
-- **Residential Design** - Home and apartment design
-- **Commercial Architecture** - Office and business space design
-- **Interior Design** - Space planning and decoration
-- **Urban Planning** - City and landscape design
-- **Renovation** - Renovation and remodeling services
-- **Consultation** - Expert consultation services
-
-### User Service Selection Flow
-
-```
-1. User browses services page
-   ↓
-2. Views available architectural services
-   ↓
-3. Reads service details and descriptions
-   ↓
-4. Selects desired service(s)
-   ↓
-5. Add to cart or request consultation
-   ↓
-6. Checkout and confirmation
-```
-
 ## 🔑 Key Features
 
 ### Authentication
@@ -239,7 +154,7 @@ Users can choose from the following architectural services:
 
 ```bash
 npm run build
-npm run start
+npm run dev
 ```
 
 ## 🧪 Development Workflow
@@ -260,41 +175,15 @@ npm run lint
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `MONGODB_URI` | MongoDB connection string | `mongodb+srv://user:pass@cluster.mongodb.net/archinest` |
-| `NEXTAUTH_URL` | Application URL | `http://localhost:3000` |
+| `NEXTAUTH_URL` | Application URL | `https://archinest-psi.vercel.app/` |
 | `NEXTAUTH_SECRET` | NextAuth secret key | Generate with `openssl rand -base64 32` |
 
-## 🎨 Design System
 
-### Color Palette
-- **Primary Orange** - `#FF900E`
-- **Secondary Orange** - `#FFB95C`
-- **Accent Orange** - `#FF6A3D`
-- **Background** - `#FFF4E7`
-- **Text Dark** - `#131313`
-- **Text Gray** - `#727272`
 
-### Typography
-- Headings: Bold, larger sizes
-- Body: Regular weight, readable size
-- Buttons: Semibold, clear CTA
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🆘 Support & Contact
 
-For support, email us at support@archinest.com or visit [contact page](/contact).
+For support, email us at support@archinest.com or visit [contact page](shahedulhoque2003@gmail.com).
 
 ## 🗺️ Roadmap
 
@@ -307,11 +196,7 @@ For support, email us at support@archinest.com or visit [contact page](/contact)
 - [ ] Email notifications
 - [ ] Real-time chat support
 
-## 👨‍💻 Author
 
-**ArchiNest Team**
-- Website: [archinest.com](https://archinest.com)
-- GitHub: [@archinest](https://github.com/archinest)
 
 ## 🙏 Acknowledgments
 
