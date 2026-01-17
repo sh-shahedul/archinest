@@ -2,6 +2,12 @@
 
 A modern architectural service platform built with Next.js, TypeScript, and MongoDB. ArchiNest allows users to browse architectural services and connect with professionals.
 
+## 🌐 Live Demo
+
+**Live Application:** [https://archinest.vercel.app](https://archinest-psi.vercel.app/)
+
+**GitHub Repository:** [https://github.com/yourusername/archinest](https://github.com/sh-shahedul/archinest)
+
 ## 🎯 Project Overview
 
 ArchiNest is a full-stack web application that connects users with architectural services. Users can explore different service categories, view available architects, and choose services based on their requirements.
@@ -159,7 +165,7 @@ GITHUB_SECRET=your_github_secret
 npm run dev
 ```
 
-Open [http://localhost:3000]() with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## 📱 Available Pages
 
