@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useAuth } from "@/hooks/useAuth"; 
 import { TUser } from "@/types/user";
+import { toast } from "react-toastify";
 export default function CreateServicePage() {
   const { user } = useAuth() as { user: TUser | null }; 
    console.log(user);
@@ -75,7 +76,7 @@ export default function CreateServicePage() {
         phoneNumber: user?.phone,
       });
 
-      alert("Service created successfully!");
+      toast.success("Service created successfully!");
       router.push("/services");
 
     } catch (error) {

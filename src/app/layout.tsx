@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ToastContainer } from "react-toastify";
 import "./globals.css";
-import Footer from "@/components/shared/Footer/Footer";
+// import Footer from "@/components/shared/Footer/Footer";
 // import { Header } from "@/components/shared/Header/Header";
 import NextAuthProvider from "@/provider/NextAuthProvider";
-import Header from "@/components/shared/Header/Header";
+// import Header from "@/components/shared/Header/Header";
 // import { Footer } from "@/components/shared/Footer/Footer";
 
 const geistSans = Geist({
@@ -41,6 +42,18 @@ export default function RootLayout({
           {/* <Footer></Footer> */}
         </footer>
          </NextAuthProvider>
+         <ToastContainer
+          position="top-right"
+          autoClose={3000} // auto hide 3 seconds
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light" // dark/light/custom
+        />
       </body>
     </html>
   );

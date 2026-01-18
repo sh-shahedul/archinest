@@ -209,6 +209,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import NavLinks from "@/components/buttons/NavLinks";
+import { toast } from "react-toastify";
 
 export const Header = () => {
   const router = useRouter();
@@ -234,7 +235,8 @@ export const Header = () => {
   };
 
   const handleLogoutClick = () => {
-    signOut();
+    signOut({ redirect: false });
+    toast.success("Logged out successfully!");
     setMobileOpen(false);
   };
 

@@ -13,6 +13,7 @@ import registerUser from "../../../scripts/registerUser";
 import { TUser } from "@/types/user";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { toast } from "react-toastify";
 
 type FormValues = {
   fullName: string;
@@ -119,11 +120,11 @@ const onSubmit = async (data: FormValues) => {
     });
 
     if (!loginResult?.error) {
-      alert("Registration and login successful!");
+      toast.success("Registration and login successful!");
       reset();
       router.push("/"); 
     } else {
-      alert("Registration successful, but login failed: " + loginResult.error);
+      toast.error("Registration successful, but login failed: " + loginResult.error);
     }
 
   } catch (error) {

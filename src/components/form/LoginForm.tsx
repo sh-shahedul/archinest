@@ -11,6 +11,7 @@ import Link from "next/link";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { toast } from "react-toastify";
 
 type LoginFormValues = {
   email: string;
@@ -40,9 +41,10 @@ const LoginForm: React.FC = () => {
     setLoading(false);
 
     if (res?.ok) {
+      toast.success('Login Successful')
       router.push("/");
     } else {
-      alert("Invalid email or password");
+      toast.error("Invalid email or password");
     }
   };
 
